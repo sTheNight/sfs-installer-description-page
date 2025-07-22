@@ -1,8 +1,6 @@
 import 'mdui';
 import 'mdui/mdui.css';
 import './style.less'
-// import './home.less'
-import './installer.less'
 import _ from "lodash"
 
 import { setTheme, type ButtonIcon } from 'mdui';
@@ -10,7 +8,6 @@ import type { NavigationDrawer } from 'mdui';
 import type { TopAppBar } from 'mdui';
 import type { Menu } from 'mdui';
 import type { Dialog } from 'mdui';
-// import type { ListItem } from 'mdui';
 
 
 const topAppBar = document.querySelector('#top-app-bar') as TopAppBar
@@ -21,8 +18,6 @@ const themeMenu = document.querySelector("#theme-menu") as Menu
 const switchThemeIconButton = document.querySelector('#switch-theme-icon-button') as ButtonIcon
 const aboutDialog = document.querySelector('#about-dialog') as Dialog
 
-// const subpageList = document.querySelectorAll<HTMLDivElement>('.subpage')
-// const leftNavigationList = document.querySelectorAll<ListItem>('#left-navigation-drawer-container mdui-list-item')
 themeLoader()
 
 leftNavigationDrawerContainer.style.paddingTop = `${topAppBar.offsetHeight}px`
@@ -68,40 +63,6 @@ function themeLoader(): void {
     }
     themeMenu.value = themeMode
 }
-
-// function switchSubpage(subpageId: string): void {
-//     let isSubpageExist = false;
-//     if (!subpageId) subpageId = 'home'
-
-//     subpageId = 'installer-download'
-
-//     leftNavigationList.forEach(item => {
-//         if (item.dataset.id !== subpageId) {
-//             item.active = false
-//         } else {
-//             item.active = true
-//             isSubpageExist = true;
-//         }
-//     })
-//     subpageList.forEach(item => {
-//         item.style.display = 'none'
-//         if (item.dataset.id === subpageId) {
-//             item.style.display = 'flex'
-//         } else {
-//             item.style.display = 'none'
-//         }
-//     })
-//     if (!isSubpageExist) switchSubpage('home')
-// }
-
-// window.addEventListener('hashchange', () => {
-//     const hash = location.hash.split('/')[1]
-//     switchSubpage(hash)
-// })
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     switchSubpage(location.hash.split('/')[1])
-// })
 
 document.querySelector('#item-about')?.addEventListener('click', () => {
     aboutDialog.open = true
