@@ -18,6 +18,7 @@ const navigationOpenButton = document.querySelector('mdui-button-icon[icon="menu
 const leftNavigationDrawer = document.querySelector('#top-appbar-menu') as NavigationDrawer
 const leftNavigationDrawerContainer = document.querySelector('#left-navigation-drawer-container') as HTMLDivElement
 const themeMenu = document.querySelector("#theme-menu") as Menu
+const switchThemeIconButton = document.querySelector('#switch-theme-icon-button') as ButtonIcon
 
 const subpageList = document.querySelectorAll<HTMLDivElement>('.subpage')
 const leftNavigationList = document.querySelectorAll<ListItem>('#left-navigation-drawer-container mdui-list-item')
@@ -53,12 +54,15 @@ function themeLoader(): void {
     switch (themeMode) {
         case 'light':
             setTheme('light')
+            switchThemeIconButton.icon = 'wb_sunny'
             break;
         case 'dark':
             setTheme('dark')
+            switchThemeIconButton.icon = 'mode_night'
             break;
         default:
             setTheme('auto')
+            switchThemeIconButton.icon = 'wb_sunny'
             break;
     }
     themeMenu.value = themeMode
