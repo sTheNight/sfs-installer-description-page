@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#example-dialog {
+    backdrop-filter: blur(8px) !important;
+}
+
+#top-app-bar {
+    position: fixed;
+    top: 0;
+}
+
+#container {
+    overflow-y: auto;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+a {
+    color: rgb(var(--mdui-color-primary));
+    text-decoration: none;
+    transition: all .2s;
+
+    &:active {
+        text-decoration: none;
+        color: rgb(var(--mdui-color-primary));
+    }
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
