@@ -1,7 +1,7 @@
 import 'mdui';
 import 'mdui/mdui.css';
 import './style.less'
-import './home.less'
+// import './home.less'
 import './installer.less'
 import _ from "lodash"
 
@@ -68,39 +68,39 @@ function themeLoader(): void {
     themeMenu.value = themeMode
 }
 
-function switchSubpage(subpageId: string): void {
-    let isSubpageExist = false;
-    if (!subpageId) subpageId = 'home'
+// function switchSubpage(subpageId: string): void {
+//     let isSubpageExist = false;
+//     if (!subpageId) subpageId = 'home'
 
-    subpageId = 'installer-download'
+//     subpageId = 'installer-download'
 
-    leftNavigationList.forEach(item => {
-        if (item.dataset.id !== subpageId) {
-            item.active = false
-        } else {
-            item.active = true
-            isSubpageExist = true;
-        }
-    })
-    subpageList.forEach(item => {
-        item.style.display = 'none'
-        if (item.dataset.id === subpageId) {
-            item.style.display = 'flex'
-        } else {
-            item.style.display = 'none'
-        }
-    })
-    if (!isSubpageExist) switchSubpage('home')
-}
+//     leftNavigationList.forEach(item => {
+//         if (item.dataset.id !== subpageId) {
+//             item.active = false
+//         } else {
+//             item.active = true
+//             isSubpageExist = true;
+//         }
+//     })
+//     subpageList.forEach(item => {
+//         item.style.display = 'none'
+//         if (item.dataset.id === subpageId) {
+//             item.style.display = 'flex'
+//         } else {
+//             item.style.display = 'none'
+//         }
+//     })
+//     if (!isSubpageExist) switchSubpage('home')
+// }
 
-window.addEventListener('hashchange', () => {
-    const hash = location.hash.split('/')[1]
-    switchSubpage(hash)
-})
+// window.addEventListener('hashchange', () => {
+//     const hash = location.hash.split('/')[1]
+//     switchSubpage(hash)
+// })
 
-document.addEventListener('DOMContentLoaded', () => {
-    switchSubpage(location.hash.split('/')[1])
-})
+// document.addEventListener('DOMContentLoaded', () => {
+//     switchSubpage(location.hash.split('/')[1])
+// })
 
 document.querySelector('#item-about')?.addEventListener('click', () => {
     dialog({
