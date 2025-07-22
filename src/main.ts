@@ -9,9 +9,9 @@ import { setTheme, type ButtonIcon } from 'mdui';
 import type { NavigationDrawer } from 'mdui';
 import type { TopAppBar } from 'mdui';
 import type { Menu } from 'mdui';
-import type { ListItem } from 'mdui';
+import type { Dialog } from 'mdui';
+// import type { ListItem } from 'mdui';
 
-import { dialog } from 'mdui';
 
 const topAppBar = document.querySelector('#top-app-bar') as TopAppBar
 const navigationOpenButton = document.querySelector('mdui-button-icon[icon="menu"]') as ButtonIcon
@@ -19,9 +19,10 @@ const leftNavigationDrawer = document.querySelector('#top-appbar-menu') as Navig
 const leftNavigationDrawerContainer = document.querySelector('#left-navigation-drawer-container') as HTMLDivElement
 const themeMenu = document.querySelector("#theme-menu") as Menu
 const switchThemeIconButton = document.querySelector('#switch-theme-icon-button') as ButtonIcon
+const aboutDialog = document.querySelector('#about-dialog') as Dialog
 
-const subpageList = document.querySelectorAll<HTMLDivElement>('.subpage')
-const leftNavigationList = document.querySelectorAll<ListItem>('#left-navigation-drawer-container mdui-list-item')
+// const subpageList = document.querySelectorAll<HTMLDivElement>('.subpage')
+// const leftNavigationList = document.querySelectorAll<ListItem>('#left-navigation-drawer-container mdui-list-item')
 themeLoader()
 
 leftNavigationDrawerContainer.style.paddingTop = `${topAppBar.offsetHeight}px`
@@ -103,15 +104,9 @@ function themeLoader(): void {
 // })
 
 document.querySelector('#item-about')?.addEventListener('click', () => {
-    dialog({
-        headline: "关于",
-        description: "由重铬酸钠制作",
-        closeOnOverlayClick: true,
-        closeOnEsc: true,
-        actions: [
-            {
-                text: "确定"
-            }
-        ]
-    });
+    aboutDialog.open = true
+})
+
+document.querySelector('#about-dialog-confirm')?.addEventListener('click',()=>{
+    aboutDialog.open = false
 })
