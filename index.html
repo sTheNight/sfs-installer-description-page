@@ -74,10 +74,17 @@
                     </div>
                 </div>
                 <div id="download-button-div">
-                    <mdui-tooltip content="下载">
-                        <mdui-button-icon icon="download--outlined"
-                            href="https://alist.na2cr2o7.icu/SpaceflightSimulator_CNlang/SFS%E5%AE%89%E8%A3%85%E5%99%A8"></mdui-button-icon>
-                    </mdui-tooltip>
+                    <mdui-dropdown>
+                        <div slot="trigger">
+                            <mdui-tooltip content="下载">
+                                <mdui-button-icon icon="download--outlined"></mdui-button-icon>
+                            </mdui-tooltip>
+                        </div>
+                        <mdui-menu id="theme-menu" value="auto">
+                            <mdui-menu-item value="light" href="https://qm.qq.com/q/xuhVzPymqu">QQ 群</mdui-menu-item>
+                            <mdui-menu-item value="dark" href="https://alist.na2cr2o7.icu/SpaceflightSimulator_CNlang/SFS%E5%AE%89%E8%A3%85%E5%99%A8">重铬酸钠の存储站</mdui-menu-item>
+                        </mdui-menu>
+                    </mdui-dropdown>
                 </div>
             </div>
             <div id="sereenshot-div">
