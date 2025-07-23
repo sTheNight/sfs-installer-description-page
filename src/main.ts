@@ -1,6 +1,6 @@
 import 'mdui';
 import 'mdui/mdui.css';
-import './style.less'
+import './style.scss'
 
 import { setTheme, type ButtonIcon } from 'mdui';
 import type { NavigationDrawer } from 'mdui';
