@@ -51,10 +51,6 @@ a {
     &#installer-download-div {
         padding: 0 32px;
     }
-
-    &#download-button-div {
-
-    }
 }
 
 #installer-app-info {
@@ -104,13 +100,12 @@ a {
         width: auto;
         border-radius: 12px;
         border: 0.0625rem solid rgb(var(--mdui-color-surface-variant));
+    }
 
-        &:not(:last-child) {
-            margin-right: 8px;
-        }
+    a[data-fancybox]:not(:last-child) {     
+        margin-right: 8px;
     }
 }
-
 .description-title {
     margin: 8px 0;
     display: flex;

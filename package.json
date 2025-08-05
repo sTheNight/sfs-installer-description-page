@@ -13,6 +13,7 @@
     "vite": "^7.0.4"
   },
   "dependencies": {
+    "@fancyapps/ui": "^6.0.21",
     "@mdui/icons": "^1.0.3",
     "axios": "^1.10.0",
     "mdui": "^2.1.4",

@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@fancyapps/ui':
+        specifier: ^6.0.21
+        version: 6.0.21
       '@mdui/icons':
         specifier: ^1.0.3
         version: 1.0.3
@@ -185,6 +188,9 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@fancyapps/ui@6.0.21':
+    resolution: {integrity: sha512-MamnIqTozXAKosbRuVWlpfKrECuUd2k9iGoccl6Io8JvmW8SppMRGvELrNDJxIi1qnjupSP22SxSmshAUoWhnQ==}
 
   '@floating-ui/utils@0.2.10':
     resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
@@ -808,6 +814,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.25.8':
     optional: true
+
+  '@fancyapps/ui@6.0.21': {}
 
   '@floating-ui/utils@0.2.10': {}
 

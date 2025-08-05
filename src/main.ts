@@ -8,6 +8,9 @@ import type { TopAppBar } from 'mdui';
 import type { Menu } from 'mdui';
 import type { Dialog } from 'mdui';
 
+import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
 const topAppBar = document.querySelector('#top-app-bar') as TopAppBar
 const navigationOpenButton = document.querySelector('mdui-button-icon[icon="menu"]') as ButtonIcon
 const leftNavigationDrawer = document.querySelector('#top-appbar-menu') as NavigationDrawer
@@ -16,50 +19,53 @@ const themeMenu = document.querySelector("#theme-menu") as Menu
 const switchThemeIconButton = document.querySelector('#switch-theme-icon-button') as ButtonIcon
 const aboutDialog = document.querySelector('#about-dialog') as Dialog
 const screenshotDiv = document.querySelector('#sereenshot-div') as HTMLDialogElement
-leftNavigationDrawerContainer.style.paddingTop = `${topAppBar.offsetHeight}px`
-
-themeLoader()
-
-navigationOpenButton.addEventListener('click', () => {
-    switchNavDrawerSta(leftNavigationDrawer)
-})
-
-themeMenu.addEventListener('change', () => {
-    if (themeMenu.value === 'light' || themeMenu.value === 'dark') {
-        localStorage.setItem('themeMode', themeMenu.value)
-    } else {
-        localStorage.setItem('themeMode', 'auto')
-    }
-    themeLoader();
-})
-
-document.querySelector('#item-about')?.addEventListener('click', () => {
-    aboutDialog.open = true
-})
-
-document.querySelector('#about-dialog-confirm')?.addEventListener('click',()=>{
-    aboutDialog.open = false
-})
 
 let isScrolling = false;
-screenshotDiv.addEventListener('wheel', (e: WheelEvent) => {
-    isScrolling = true;
-    e.preventDefault();
-    const startScrollLeft = screenshotDiv.scrollLeft;
-    let startTime: number | null = null;
-    function animateScroll(time: number): void {
-        if (!startTime) startTime = time
-        let process = (time - startTime)
-        let ease = Math.min((process / 200), 1)
-        screenshotDiv.scrollLeft = startScrollLeft + e.deltaY * ease;
-        if (process < 200) {
-            requestAnimationFrame(animateScroll)
+
+function pageInitial() {
+    themeLoader()
+    leftNavigationDrawerContainer.style.paddingTop = `${topAppBar.offsetHeight}px`
+    Fancybox.bind("[data-fancybox]", {});
+    navigationOpenButton.addEventListener('click', () => {
+        switchNavDrawerSta(leftNavigationDrawer)
+    })
+
+    themeMenu.addEventListener('change', () => {
+        if (themeMenu.value === 'light' || themeMenu.value === 'dark') {
+            localStorage.setItem('themeMode', themeMenu.value)
         } else {
-            isScrolling = false
+            localStorage.setItem('themeMode', 'auto')
         }
-    }
-    requestAnimationFrame(animateScroll);  // 开始动画
-}, { passive: false });
+        themeLoader();
+    })
+
+    document.querySelector('#item-about')?.addEventListener('click', () => {
+        aboutDialog.open = true
+    })
+
+    document.querySelector('#about-dialog-confirm')?.addEventListener('click', () => {
+        aboutDialog.open = false
+    })
+
+    screenshotDiv.addEventListener('wheel', (e: WheelEvent) => {
+        isScrolling = true;
+        e.preventDefault();
+        const startScrollLeft = screenshotDiv.scrollLeft;
+        let startTime: number | null = null;
+        function animateScroll(time: number): void {
+            if (!startTime) startTime = time
+            let process = (time - startTime)
+            let ease = Math.min((process / 200), 1)
+            screenshotDiv.scrollLeft = startScrollLeft + e.deltaY * ease;
+            if (process < 200) {
+                requestAnimationFrame(animateScroll)
+            } else {
+                isScrolling = false
+            }
+        }
+        requestAnimationFrame(animateScroll);
+    }, { passive: false });
+}
 
 function themeLoader(): void {
     const themeMode = localStorage.getItem('themeMode') ?? 'auto'
@@ -89,3 +95,5 @@ function switchNavDrawerSta(navDraEle: NavigationDrawer): void {
         navDraEle.open = true
     }
 }
+
+pageInitial();
