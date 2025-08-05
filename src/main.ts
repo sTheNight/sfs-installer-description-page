@@ -3,13 +3,15 @@ import 'mdui/mdui.css';
 import './style.scss'
 
 import { setTheme, type ButtonIcon } from 'mdui';
-import type { NavigationDrawer } from 'mdui';
+import type { MenuItem, NavigationDrawer } from 'mdui';
 import type { TopAppBar } from 'mdui';
 import type { Menu } from 'mdui';
 import type { Dialog } from 'mdui';
 
 import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
+import { config } from './config';
 
 const topAppBar = document.querySelector('#top-app-bar') as TopAppBar
 const navigationOpenButton = document.querySelector('mdui-button-icon[icon="menu"]') as ButtonIcon
@@ -19,11 +21,14 @@ const themeMenu = document.querySelector("#theme-menu") as Menu
 const switchThemeIconButton = document.querySelector('#switch-theme-icon-button') as ButtonIcon
 const aboutDialog = document.querySelector('#about-dialog') as Dialog
 const screenshotDiv = document.querySelector('#sereenshot-div') as HTMLDialogElement
+const downloadMenu = document.querySelector('#download-menu') as Menu
 
 let isScrolling = false;
 
 function pageInitial() {
     themeLoader()
+    loadDownloadMenuItem()
+    loadScreenshots();
     leftNavigationDrawerContainer.style.paddingTop = `${topAppBar.offsetHeight}px`
     Fancybox.bind("[data-fancybox]", {});
     navigationOpenButton.addEventListener('click', () => {
@@ -95,5 +100,33 @@ function switchNavDrawerSta(navDraEle: NavigationDrawer): void {
         navDraEle.open = true
     }
 }
+
+function loadDownloadMenuItem() {
+    downloadMenu.innerHTML = ""
+    config.downloadLinks.forEach(item => {
+        const newMenuItem = document.createElement('mdui-menu-item') as MenuItem
+        newMenuItem.innerText = item.title
+        newMenuItem.href = item.link
+        downloadMenu.appendChild(newMenuItem)
+    })
+}
+
+function loadScreenshots(): void {
+    screenshotDiv.innerHTML = '';
+    config.screenshots.forEach((item, index) => {
+        const a = document.createElement('a');
+        a.href = item;
+        a.setAttribute('data-fancybox', 'gallery');
+
+        const img = document.createElement('img');
+        img.src = item;
+        img.alt = `Screenshot ${index + 1}`;
+        img.classList.add('screenshot-img');
+
+        a.appendChild(img);
+        screenshotDiv.appendChild(a);
+    });
+}
+
 
 pageInitial();
