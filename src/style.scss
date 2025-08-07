@@ -26,17 +26,18 @@ mdui-navigation-drawer {
     box-sizing: border-box;
 }
 
-a {
+a:not([data-fancybox]) {
     color: rgb(var(--mdui-color-primary));
     text-decoration: none;
-    transition: all .2s;
-
+    transition: all .15s;
+    margin: 0 5px;
+    border-bottom: .0625rem solid transparent;
     &:active {
         color: rgb(var(--mdui-color-primary));
     }
 
     &:hover {
-        text-decoration: underline;
+        border-bottom: .0625rem solid rgb(var(--mdui-color-primary));
     }
 }
 
