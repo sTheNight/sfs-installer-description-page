@@ -20,4 +20,6 @@ a:not([data-fancybox]) {
 mdui-dialog,
 mdui-navigation-drawer {
     backdrop-filter: blur(4px);
+    position: fixed;
+    z-index: 99;
 }

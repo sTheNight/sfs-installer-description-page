@@ -60,7 +60,7 @@ watch(currentPage,()=>{
             @click="isAboutDialogOpen = false">确定</mdui-button>
     </mdui-dialog>
     <div id="container">
-        <mdui-navigation-drawer :open="isNavigationOpen" contained close-on-overlay-click close-on-esc>
+        <mdui-navigation-drawer :open="isNavigationOpen" contained close-on-overlay-click close-on-esc @overlay-click="isNavigationOpen=false">
             <div id="left-navigation-drawer-container">
                 <mdui-list>
                     <mdui-list-item v-for="(item, index) in pages" :key="currentPage" :active="index === currentPage"
@@ -95,5 +95,6 @@ watch(currentPage,()=>{
 #view-div {
     max-width: $max-content-width;
     margin: 0 auto;
+    padding: 0 32px;
 }
 </style>
