@@ -1,0 +1,23 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+a:not([data-fancybox]) {
+    color: rgb(var(--mdui-color-primary));
+    text-decoration: none;
+    transition: all .15s;
+    margin: 0 5px;
+    border-bottom: .0625rem solid transparent;
+    &:active {
+        color: rgb(var(--mdui-color-primary));
+    }
+
+    &:hover {
+        border-bottom: .0625rem solid rgb(var(--mdui-color-primary));
+    }
+}
+mdui-dialog,
+mdui-navigation-drawer {
+    backdrop-filter: blur(4px);
+}

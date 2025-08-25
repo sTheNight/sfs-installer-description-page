@@ -1,96 +1,18 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="">
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SFS安装器</title>
+    <title>Vite App</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 </head>
 
 <body>
-    <mdui-top-app-bar id="top-app-bar" scroll-behavior="elevate" scroll-target="#container">
-        <mdui-button-icon icon="menu"></mdui-button-icon>
-        <mdui-top-app-bar-title>SFS安装器</mdui-top-app-bar-title>
-
-        <mdui-dropdown>
-            <div slot="trigger">
-                <mdui-tooltip content="主题">
-                    <mdui-button-icon id="switch-theme-icon-button" icon="light_mode--outlined"></mdui-button-icon>
-                </mdui-tooltip>
-            </div>
-            <mdui-menu id="theme-menu" selects="single" value="auto">
-                <mdui-menu-item value="light">亮色模式</mdui-menu-item>
-                <mdui-menu-item value="dark">暗色模式</mdui-menu-item>
-                <mdui-divider></mdui-divider>
-                <mdui-menu-item value="auto">跟随系统</mdui-menu-item>
-            </mdui-menu>
-        </mdui-dropdown>
-        <mdui-dropdown>
-            <div slot="trigger">
-                <mdui-tooltip content="菜单">
-                    <mdui-button-icon icon="more_vert"></mdui-button-icon>
-                </mdui-tooltip>
-            </div>
-            <mdui-menu id="more-menu" value="auto">
-                <mdui-menu-item id="item-about" value="light">关于</mdui-menu-item>
-            </mdui-menu>
-        </mdui-dropdown>
-    </mdui-top-app-bar>
-    <div id="container">
-        <mdui-navigation-drawer id="top-appbar-menu" contained close-on-overlay-click close-on-esc>
-            <div id="left-navigation-drawer-container">
-                <mdui-list>
-                    <mdui-list-item active rounded icon="android" data-id="installer-download"
-                        href="/">安装器</mdui-list-item>
-                </mdui-list>
-            </div>
-        </mdui-navigation-drawer>
-        <mdui-dialog close-on-esc close-on-overlay-click headline="关于" id="about-dialog">
-            <div slot="description" style="padding: 5px 0;">
-                此页面及应用由<a href="https://izako.cc/">重铬酸钠</a>制作</br>
-                此页面使用<a href="https://www.mdui.org/">MDUI</a>构建</br>
-                感谢<a href="https://youfeng11.github.io/">由风</a>为此应用提供帮助</br>
-            </div>
-            <mdui-button slot="action" variant="text" id="about-dialog-confirm">确定</mdui-button>
-        </mdui-dialog>
-        <div id="installer-download-div" class="subpage" data-id="installer-download">
-            <div id="installer-app-info">
-                <div id="package-info-div">
-                    <img src="./app_icon.png" id="installer-app-icon">
-                    <div id="app-name-div">
-                        <h3 id="app-name-title">SFS安装器</h3>
-                        <p id="app-version">v1.5.10.5-9-fix8</p>
-                    </div>
-                </div>
-                <div id="download-button-div">
-                    <mdui-dropdown>
-                        <div slot="trigger">
-                            <mdui-tooltip content="下载">
-                                <mdui-button-icon icon="download"></mdui-button-icon>
-                            </mdui-tooltip>
-                        </div>
-                        <mdui-menu id="download-menu" value="auto"></mdui-menu>
-                    </mdui-dropdown>
-                </div>
-            </div>
-            <div id="sereenshot-div">
-
-            </div>
-            <mdui-card class="description-card" variant="outlined">
-                <h3 class="description-title"><mdui-icon name='description'></mdui-icon>介绍</h3>
-                <p class="description-text">这是一个航天模拟器的安装器，可以用于安装航天模拟器的最新版汉化包及破解补丁</p>
-                <p>感谢<a href="https://github.com/youfeng11">由风</a>提供的帮助！</p>
-            </mdui-card>
-            <mdui-card class="description-card" variant="outlined">
-                <h3 class="description-title"><mdui-icon name='update'></mdui-icon>更新日志</h3>
-                <ul>
-                    <li>自动应用汉化包</li>
-                </ul>
-            </mdui-card>
-        </div>
-        <script type="module" src="./src/main.ts"></script>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
 </body>
 
 </html>
