@@ -2,7 +2,7 @@
 import { reactive, ref, useTemplateRef, watch, type ShallowRef } from 'vue';
 import InstallerDescription from './views/InstallerDescription.vue';
 import Page2 from './views/Page2.vue';
-import'./styles/main.scss';
+import './styles/main.scss';
 import { NavigationDrawer, setTheme } from 'mdui';
 
 let currentPage = ref(0)
@@ -16,8 +16,8 @@ const pages = [
 
 document.title = pages[currentPage.value].name
 
-watch(currentPage,()=>{
-    document.title=pages[currentPage.value].name
+watch(currentPage, () => {
+    document.title = pages[currentPage.value].name
 })
 
 </script>
@@ -50,7 +50,8 @@ watch(currentPage,()=>{
             </mdui-menu>
         </mdui-dropdown>
     </mdui-top-app-bar>
-        <mdui-dialog :open="isAboutDialogOpen" close-on-esc close-on-overlay-click headline="关于" id="about-dialog" @overlay-click="isAboutDialogOpen=false">
+    <mdui-dialog :open="isAboutDialogOpen" close-on-esc close-on-overlay-click headline="关于" id="about-dialog"
+        @overlay-click="isAboutDialogOpen = false">
         <div slot="description" style="padding: 5px 0;">
             <p style="margin: 0;padding: 0;">此页面及应用由<a href="https://izako.cc/">重铬酸钠</a>制作</p>
             <p style="margin: 0;padding: 0;">此页面使用<a href="https://www.mdui.org/">MDUI</a>构建</p>
@@ -60,7 +61,8 @@ watch(currentPage,()=>{
             @click="isAboutDialogOpen = false">确定</mdui-button>
     </mdui-dialog>
     <div id="container">
-        <mdui-navigation-drawer :open="isNavigationOpen" contained close-on-overlay-click close-on-esc @overlay-click="isNavigationOpen=false">
+        <mdui-navigation-drawer :open="isNavigationOpen" contained close-on-overlay-click close-on-esc
+            @overlay-click="isNavigationOpen = false">
             <div id="left-navigation-drawer-container">
                 <mdui-list>
                     <mdui-list-item v-for="(item, index) in pages" :key="currentPage" :active="index === currentPage"
@@ -86,10 +88,13 @@ watch(currentPage,()=>{
 #container {
     overflow-y: auto;
     box-sizing: border-box;
+    max-height: 100vh;
 }
 
 #left-navigation-drawer-container {
-    padding-top: 64px;
+    @media screen and (max-height:800px) {
+        padding-top: 64px;
+    }
 }
 
 #view-div {
